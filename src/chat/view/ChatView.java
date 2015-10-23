@@ -5,13 +5,18 @@ import javax.swing.JOptionPane;
 public class ChatView 
 {
 
-	public String  grabText ( String poppText ) 
+	
+	public  void displaymessage(String message)
 	{
-		String returnedText = "";
+		JOptionPane.showMessageDialog(null, message);
 		
-		
-		return returnedText;
 	}
 	
-	
+	public String grabText (String message)
+	{
+		String output = "";
+		output = JOptionPane.showInputDialog(null, message);
+		return output;
+				
+	}
 }

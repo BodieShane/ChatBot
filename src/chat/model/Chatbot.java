@@ -1,12 +1,12 @@
 package chat.model;
-
+import chat.controller.ChatBotController;
 import java.util.ArrayList;
 
 /**
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
- * of the project.
+ * of the project. Added pop ups to the project
  * @author Bodie Shane 
- * @version 1.0 10/24/15
+ * @version 1.3 10/24/15
  */
 public class Chatbot
 {
@@ -21,7 +21,7 @@ public class Chatbot
 	 */
 	public Chatbot(String userName)
 	{
-		
+		this.userName= userName;
 	}
 	
 	private void buildMemesList()
@@ -42,7 +42,22 @@ public class Chatbot
 	 */
 	public boolean lengthChecker(String currentInput)
 	{
-		return false;
+		boolean hasLength = false;
+		
+		if(currentInput != null)
+		{
+			if(currentInput.length() >= 1 )
+			{
+				hasLength = true;
+			}
+		}
+		
+		if(currentInput != null && currentInput.length() > 0)
+		{
+			hasLength = true;
+		}
+			
+		return hasLength;
 	}
 	
 	/**
@@ -83,7 +98,7 @@ public class Chatbot
 	 */
 	public String getUserName()
 	{
-		return null;
+		return userName;
 	}
 	
 	/**
