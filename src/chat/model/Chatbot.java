@@ -41,32 +41,51 @@ public class Chatbot
 	{
 		this.memesList.add("me gusta y no ");
 		
-		this.memesList.add("what if i told you ");
-		this.memesList.add("rare pepe ");
-		this.memesList.add("aliens ");
-		this.memesList.add("doge ");
+		this.memesList.add("what if i told you");
+		this.memesList.add("rare pepe");
+		this.memesList.add("aliens");
+		this.memesList.add("doge");
 		this.memesList.add("bad luck brian ");
 		this.memesList.add("unhelpful highschool teacher");
 		this.memesList.add("spoderman");
-		this.memesList.add("cute animals ");
-		this.memesList.add("JOHN CENA ");
-		this.memesList.add("troll ");
+		this.memesList.add("cute animals");
+		this.memesList.add("JOHN CENA");
+		this.memesList.add("troll");
 		
 
 	}
 
 	private void buildPoliticalTopicsList()
 	{
-		this.politicalTopicList.add("Income Tax ");
+		this.politicalTopicList.add("Income Tax");
 		this.politicalTopicList.add("jobs");
 		this.politicalTopicList.add(" Women's Rights");
 		this.politicalTopicList.add("Gay Rights");
 		this.politicalTopicList.add("Defense of Marriage Act");
-		this.politicalTopicList.add(" Energy");
-		this.politicalTopicList.add(" Unemployment Benefits");
-		this.politicalTopicList.add(" Police Abuse");
-		this.politicalTopicList.add(" Tort Reform");
+		this.politicalTopicList.add("Energy");
+		this.politicalTopicList.add("Unemployment Benefits");
+		this.politicalTopicList.add("Police Abuse");
+		this.politicalTopicList.add("Tort Reform");
 		this.politicalTopicList.add("Combat Drones");
+		this.politicalTopicList.add("Hillary Clinton");
+		this.politicalTopicList.add("Martin O'Malley");
+		this.politicalTopicList.add("Bernie Sanders ");
+		this.politicalTopicList.add("Jeb Bush");
+		this.politicalTopicList.add("Ben Carson");
+		this.politicalTopicList.add("Chris Christie");
+		this.politicalTopicList.add("Ted Cruz");
+		this.politicalTopicList.add("Carly Fiorina");
+		this.politicalTopicList.add("Jim Gilmore");
+		this.politicalTopicList.add("Lindsey Graham");
+		this.politicalTopicList.add("Mike Huckabee");
+		this.politicalTopicList.add("Bobby Jindal");
+		this.politicalTopicList.add("john Kasich");
+		this.politicalTopicList.add("George Pataki");
+		this.politicalTopicList.add("Rand Paul");
+		this.politicalTopicList.add("Marco Rubio");
+		this.politicalTopicList.add("Rick Santorum");
+		this.politicalTopicList.add("Donald Trump");
+		
 
 	}
 
