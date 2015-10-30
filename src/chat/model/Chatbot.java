@@ -1,5 +1,5 @@
 package chat.model;
-
+import javax.swing.JOptionPane;
 import chat.controller.ChatBotController;
 
 import java.util.ArrayList;
@@ -140,12 +140,17 @@ public class Chatbot
 	public boolean memeChecker(String currentInput)
 	{
 		boolean hasMeme = false;
-		for (STRING currentMeme:memesList )
+		for ( String currentMeme:memesList )
 		{
-			if(currentMeme.equalsignore()
-					{
-					 
-					}
+			
+			if(currentMeme.equalsIgnoreCase(currentMeme))
+			{
+				hasMeme =true;
+			}
+			
+			
+			JOptionPane.showMessageDialog(null,currentMeme); 
+			
 		}
 	
 		
