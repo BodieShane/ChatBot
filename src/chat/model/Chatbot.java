@@ -40,7 +40,7 @@ public class Chatbot
 	private void buildMemesList()
 	{
 		this.memesList.add("me gusta y no ");
-		this.memesList.add("troll ");
+		
 		this.memesList.add("what if i told you ");
 		this.memesList.add("rare pepe ");
 		this.memesList.add("aliens ");
@@ -50,21 +50,23 @@ public class Chatbot
 		this.memesList.add("spoderman");
 		this.memesList.add("cute animals ");
 		this.memesList.add("JOHN CENA ");
+		this.memesList.add("troll ");
+		
 
 	}
 
 	private void buildPoliticalTopicsList()
 	{
-		this.memesList.add("me gusta y no ");
-		this.memesList.add("me gusta y no ");
-		this.memesList.add("me gusta y no ");
-		this.memesList.add("me gusta y no ");
-		this.memesList.add("me gusta y no ");
-		this.memesList.add("me gusta y no ");
-		this.memesList.add("me gusta y no ");
-		this.memesList.add("me gusta y no ");
-		this.memesList.add("me gusta y no ");
-		this.memesList.add("me gusta y no ");
+		this.politicalTopicList.add("Income Tax ");
+		this.politicalTopicList.add("jobs");
+		this.politicalTopicList.add(" Women's Rights");
+		this.politicalTopicList.add("Gay Rights");
+		this.politicalTopicList.add("Defense of Marriage Act");
+		this.politicalTopicList.add(" Energy");
+		this.politicalTopicList.add(" Unemployment Benefits");
+		this.politicalTopicList.add(" Police Abuse");
+		this.politicalTopicList.add(" Tort Reform");
+		this.politicalTopicList.add("Combat Drones");
 
 	}
 
@@ -126,7 +128,25 @@ public class Chatbot
 	 */
 	public boolean politicalTopicChecker(String currentInput)
 	{
-		return false;
+		
+		boolean haspoliticalTopic = false;
+		for ( String currentpoliticalTopic:politicalTopicList )
+		{
+			
+			if(currentInput.equalsIgnoreCase(currentpoliticalTopic))
+			{
+				haspoliticalTopic =true;
+			}
+			
+			
+			
+			
+		}
+	
+		
+		return haspoliticalTopic;
+		
+		
 	}
 
 	/**
@@ -143,13 +163,13 @@ public class Chatbot
 		for ( String currentMeme:memesList )
 		{
 			
-			if(currentMeme.equalsIgnoreCase(currentMeme))
+			if(currentInput.equalsIgnoreCase(currentMeme))
 			{
-				hasMeme =true;
+				hasMeme = true;
+				 
+			
 			}
-			
-			
-			JOptionPane.showMessageDialog(null,currentMeme); 
+				
 			
 		}
 	
