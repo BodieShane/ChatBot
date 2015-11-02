@@ -18,8 +18,10 @@ public class Chatbot
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
+	private ArrayList<String> catList;
 	private String userName;
 	private String content;
+	
 
 	/**
 	 * Creates an instance of the Chatbot with the supplied username.
@@ -31,10 +33,12 @@ public class Chatbot
 	{
 		this.userName = userName;
 		this.content = "Game's";
+		this.catList = new ArrayList<String>();
 		this.memesList = new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
 		buildMemesList();
 		buildPoliticalTopicsList();
+		buildCatList();
 	}
 
 	private void buildMemesList()
@@ -87,6 +91,16 @@ public class Chatbot
 		this.politicalTopicList.add("Donald Trump");
 		
 
+	}
+	
+	
+	private void buildCatList()
+	{
+		this.catList.add("Cat");
+		this.catList.add("purr");
+		this.catList.add("catastrophe");
+		this.catList.add("Cat's");
+		
 	}
 
 	/**
@@ -166,6 +180,19 @@ public class Chatbot
 		return haspoliticalTopic;
 		
 		
+	}
+	public boolean CatlistChecker(String currentInput)
+	{
+		boolean hasCatlist = false;
+		for (String currentcatlist:catList)
+		{
+			if(currentInput.equalsIgnoreCase(currentcatlist))
+			{
+				hasCatlist = true;
+			}
+		}
+		
+		return hasCatlist;
 	}
 
 	/**

@@ -108,13 +108,17 @@ public class ChatBotController
 				myDisplay.displaymessage("Troll!");
 				myDisplay.displaymessage("Troll!");
 				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
+				myDisplay.displaymessage("Troll!"); 
 				myDisplay.displaymessage("Troll!");
 			}
 			
 			else if(myBot.politicalTopicChecker(conversation))
 			{
 				myDisplay.displaymessage("What political Topic " + myBot.getUserName() + ". So you do know how you use that big lump of gray matter in your head!" );
+			}
+			else if(myBot.CatlistChecker(conversation))
+			{
+				myDisplay.displaymessage("Wow that sentence was CATtaculer!!!" );
 			}
 			conversation = myDisplay.grabText(conversation);
 		}
