@@ -16,6 +16,7 @@ import javax.print.DocFlavor.STRING;
  */
 public class Chatbot
 {
+	
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
 	private ArrayList<String> catList;
@@ -39,6 +40,7 @@ public class Chatbot
 		buildMemesList();
 		buildPoliticalTopicsList();
 		buildCatList();
+		
 	}
 
 	private void buildMemesList()
@@ -102,6 +104,7 @@ public class Chatbot
 		this.catList.add("Cat's");
 		
 	}
+	
 
 	/**
 	 * Checks the length of the supplied string. Returns false if the supplied
@@ -222,6 +225,56 @@ public class Chatbot
 		
 		return hasMeme;
 	}
+	
+	
+	public  String prossesConersation(String currentChat)
+	{
+		String nextConversation = "Oh, what else would you like to talk about?";
+		int   randomTopic =(int) (Math.random() * 5);//generates a random number between 0 and 4
+		
+		switch (randomTopic)
+				{
+				
+				
+			case 0:
+				if(memeChecker(currentChat))
+				{
+					nextConversation = "That meme is so last year. What else do you want to talk about";
+				}
+				break;
+			case 1:
+				if(politicalTopicChecker(currentChat))
+				{
+					nextConversation = "Oh a political topic! I see well I think that we should let me run evrething. ";
+				}
+				break;
+			case 2:
+				if(currentChat.length () > 20)
+				{
+					nextConversation = "Oh wow your useing a lot of big words there. If i'm right then you used a length more then 20. Good job.  ";
+				}
+				break;
+			case 3:
+				if(CatlistChecker(currentChat))
+				{
+					nextConversation = "this is PURRfict";
+				}
+				break;
+			case 4:
+				nextConversation = "Oh relly tell me more. ";
+				break;
+			default: 
+				nextConversation = "if you found this then the universe has ended. Try restarting it. That fixes it most of the time.";
+				break;
+				
+	}
+		
+				
+		
+		
+		return nextConversation;
+	}
+	
 
 	/**
 	 * Returns the username of this Chatbot instance.

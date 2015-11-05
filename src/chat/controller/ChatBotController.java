@@ -76,51 +76,58 @@ public class ChatBotController
 		String conversation = myDisplay.grabText("What would you like to talk about today " + myBot.getUserName() + "?" );
 		while(myBot.lengthChecker(conversation))
 		{
-			if(myBot.contentChecker(conversation))
-			{
-				myDisplay.displaymessage("wow, I had no idea you are interested in " + myBot.getContent());
-			}
-			else if(myBot.memeChecker(conversation))
-			{
-				myDisplay.displaymessage("what a lame meme. I am have all of that " + myBot.getUserName() + ". I wanted more from you." ) ;
-				myDisplay.displaymessage("I do hava favrate meme. Do you know what it is?");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!");
-				myDisplay.displaymessage("Troll!"); 
-				myDisplay.displaymessage("Troll!");
-			}
 			
-			else if(myBot.politicalTopicChecker(conversation))
-			{
-				myDisplay.displaymessage("What political Topic " + myBot.getUserName() + ". So you do know how you use that big lump of gray matter in your head!" );
-			}
-			else if(myBot.CatlistChecker(conversation))
-			{
-				myDisplay.displaymessage("Wow that sentence was CATtaculer!!!" );
-			}
+			
+			conversation = myBot.prossesConersation(conversation);
 			conversation = myDisplay.grabText(conversation);
+			
+//			if(myBot.contentChecker(conversation))
+//			{
+//				myDisplay.displaymessage("wow, I had no idea you are interested in " + myBot.getContent());
+//			}
+//			else if(myBot.memeChecker(conversation))
+//			{
+//				myDisplay.displaymessage("what a lame meme " + myBot.getUserName() + ". I wanted more from you." ) ;
+//				myDisplay.displaymessage("I do hava favrate meme. Do you know what it is?");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll! : ) ");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll! : )");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll! : )");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll!");
+//				myDisplay.displaymessage("Troll! : )"); 
+//				myDisplay.displaymessage("Troll!");
+//			}
+//			
+//			else if(myBot.politicalTopicChecker(conversation))
+//			{
+//				myDisplay.displaymessage("What political Topic " + myBot.getUserName() + ". So you do know how you use that big lump of gray matter in your head!" );
+//			}
+//			else if(myBot.CatlistChecker(conversation))
+//			{
+//				myDisplay.displaymessage("Wow that sentence was CATtaculer!!!" );
+//			}
+//	
+//					
+//			conversation = myDisplay.grabText(conversation);
 		}
 	}
 }
