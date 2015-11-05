@@ -239,7 +239,29 @@ public class Chatbot
 			case 0:
 				if(memeChecker(currentChat))
 				{
-					nextConversation = "That meme is so last year. What else do you want to talk about";
+					nextConversation = "But now that you know we can talk about something else : l";
+					if(memeChecker(currentChat))
+					{
+						JOptionPane.showMessageDialog(null,"That meme is so last year. Do you know what my favrate meme is?");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						JOptionPane.showMessageDialog(null,"Troll!");
+						
+					}
 				}
 				break;
 			case 1:
