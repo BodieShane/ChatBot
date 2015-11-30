@@ -10,14 +10,14 @@ import chat.controller.*;
 
 public class ChatFrameTest
 {
-	private ChatFrame baseFrame;
-	private ChatController baseController;
+	private ChatBotFrame baseFrame;
+	private ChatBotController baseController;
 
 	@Before
 	public void setUp() throws Exception
 	{
-		baseController = new ChatController();
-		baseFrame = new ChatFrame(baseController);
+		baseController = new ChatBotController();
+		baseFrame = new ChatBotFrame(baseController);
 	}
 
 	@After
@@ -41,7 +41,7 @@ public class ChatFrameTest
 		assertTrue("Minimum width not made", baseFrame.getWidth() > 300);
 		assertTrue("Minimum height not made", baseFrame.getHeight() > 300);
 		assertTrue("You need to see this", baseFrame.isVisible());
-		assertTrue("Panel is installed", baseFrame.getContentPane() instanceof ChatPanel);
+		assertTrue("Panel is installed", baseFrame.getContentPane() instanceof ChatBotPanel);
 	}
 
 }
