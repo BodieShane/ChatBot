@@ -41,7 +41,7 @@ public class ChatBotController
 	{
 		myDisplay.displaymessage("Hello " + myBot.getUserName());
 		
-		chat();
+		//chat();
 	
 	}
 	

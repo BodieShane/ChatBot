@@ -16,7 +16,7 @@ import javax.print.DocFlavor.STRING;
  */
 public class Chatbot
 {
-	
+	private ArrayList<String> keyboardMash;
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
 	private ArrayList<String> catList;
@@ -42,7 +42,15 @@ public class Chatbot
 		buildCatList();
 		
 	}
-
+	
+	private void buildkeyboardMash()
+	{
+		
+		this.keyboardMash.add("sdf");
+		this.keyboardMash.add("dfg");
+		this.keyboardMash.add(",./");
+	}
+	
 	private void buildMemesList()
 	{
 		this.memesList.add("me gusta y no ");
@@ -141,6 +149,9 @@ public class Chatbot
 	 *            The supplied String to be checked.
 	 * @return Whether it matches the content area.
 	 */
+	
+	
+	
 	public boolean contentChecker(String currentInput)
 	{
 		boolean hascotent = false;
@@ -184,6 +195,20 @@ public class Chatbot
 		
 		
 	}
+	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean haskeyboardMash = false;
+		for (String currentkeyboardMash: keyboardMash)
+		{
+			if(currentInput.equalsIgnoreCase(currentkeyboardMash))
+			{
+				haskeyboardMash = true;
+			}
+		}
+		return haskeyboardMash;
+	}
+	
 	public boolean CatlistChecker(String currentInput)
 	{
 		boolean hasCatlist = false;

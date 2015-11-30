@@ -23,19 +23,8 @@ public class ChatBotPanel extends JPanel
 			submitButton = new JButton("Enter");
 			
 			TextField = new JTextField ("Words can be typed here");
-			baseLayout.putConstraint(SpringLayout.NORTH, TextField, 254, SpringLayout.NORTH, this);
-			baseLayout.putConstraint(SpringLayout.SOUTH, submitButton, -6, SpringLayout.NORTH, TextField);
-			baseLayout.putConstraint(SpringLayout.WEST, TextField, 132, SpringLayout.WEST, this);
-			
-			
 			chatArea = new JTextArea (10,30);
-			baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -87, SpringLayout.SOUTH, this);
-			
-			
 			promptLabel = new JLabel("Talk with me");
-			baseLayout.putConstraint(SpringLayout.WEST, submitButton, 0, SpringLayout.WEST, promptLabel);
-			
-			
 			TextField.setToolTipText("Type Here for the ChatBot");
 			
 			setupPanel();
@@ -70,6 +59,14 @@ public class ChatBotPanel extends JPanel
 	baseLayout.putConstraint(SpringLayout.WEST, chatArea, 37, SpringLayout.WEST, this);
 	baseLayout.putConstraint(SpringLayout.WEST, promptLabel, 175, SpringLayout.WEST, this);
 			baseLayout.putConstraint(SpringLayout.SOUTH, promptLabel, -14, SpringLayout.NORTH, chatArea);
+	baseLayout.putConstraint(SpringLayout.NORTH, TextField, 254, SpringLayout.NORTH, this);
+			baseLayout.putConstraint(SpringLayout.SOUTH, submitButton, -6, SpringLayout.NORTH, TextField);
+			baseLayout.putConstraint(SpringLayout.WEST, TextField, 132, SpringLayout.WEST, this);
+	baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -87, SpringLayout.SOUTH, this);
+	baseLayout.putConstraint(SpringLayout.WEST, submitButton, 0, SpringLayout.WEST, promptLabel);
+	
+	
+	
 	
 	
 	}
