@@ -25,7 +25,7 @@ public class ChatBotPanel extends JPanel
 			TextField = new JTextField ("Words can be typed here");
 			chatArea = new JTextArea (10,30);
 			promptLabel = new JLabel("Talk with me");
-			TextField.setToolTipText("Type Here for the ChatBot");
+			
 			
 			setupPanel();
 			setupLayout();
@@ -35,12 +35,12 @@ public class ChatBotPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
-	
+		this.add(submitButton);
 		this.add(TextField);
 		this.add(chatArea);
 		this.add(promptLabel);
-		this.add(submitButton);
 		
+		TextField.setToolTipText("Type Here for the ChatBot");
 		
 		chatArea.setEditable(false);
 	}
