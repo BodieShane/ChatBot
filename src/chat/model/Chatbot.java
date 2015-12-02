@@ -195,6 +195,17 @@ public class Chatbot
 		
 		
 	}
+	public boolean quitchecker(String currentInput)
+	{
+		boolean hasQuit = false;
+		
+		if (currentInput.equals("quit"))
+		{
+					hasQuit = true;
+		}
+				return hasQuit;
+	}
+	
 	
 	public boolean keyboardMashChecker(String currentInput)
 	{

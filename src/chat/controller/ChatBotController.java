@@ -59,4 +59,9 @@ public class ChatBotController
 
 		}
 	}
+	private void shutDown()
+	{
+		myDisplay.grabText("Goodbye," + myBot.getUserName() + " it has been my pleasure to talk with you");
+		System.exit(0);
+	}
 }
