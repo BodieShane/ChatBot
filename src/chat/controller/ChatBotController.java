@@ -1,12 +1,10 @@
 package chat.controller;
-import javax.swing.JOptionPane;
-
-import chat.model.Chatbot;
-import chat.view.*;
-
-
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import chat.model.Chatbot;
+import chat.view.ChatBotFrame;
+import chat.view.ChatView;
 
 /**
  * Application controller for the Chatbot project.
@@ -31,7 +29,6 @@ public class ChatBotController
 		myDisplay = new ChatView();
 		String userName= myDisplay.grabText("What is your name?");
 		myBot = new Chatbot(userName);
-		ChatBotScanner = new Scanner(System.in);
 		baceFrame = new ChatBotFrame (this); 
 	}
 	
@@ -39,7 +36,7 @@ public class ChatBotController
 	public void start()
 
 	{
-		myDisplay.displaymessage("Hello " + myBot.getUserName());
+		//myDisplay.displaymessage("Hello " + myBot.getUserName());
 		
 		//chat();
 	
@@ -59,6 +56,20 @@ public class ChatBotController
 
 		}
 	}
+	public String userToChabot(String conersation)
+	{
+		String response ="";
+		if(myBot.quitchecker(conersation))
+		{
+			shutDown();
+		}
+		response = myBot.prossesConersation(conersation);
+		
+		
+		return response;
+	}
+	
+	
 	private void shutDown()
 	{
 		myDisplay.grabText("Goodbye," + myBot.getUserName() + " it has been my pleasure to talk with you");

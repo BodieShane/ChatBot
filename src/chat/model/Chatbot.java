@@ -266,7 +266,7 @@ public class Chatbot
 	public  String prossesConersation(String currentChat)
 	{
 		String nextConversation = "Oh, what else would you like to talk about?";
-		int   randomTopic =(int) (Math.random() * 5);//generates a random number between 0 and 4
+		int   randomTopic =(int) (Math.random() * 10);//generates a random number between 0 and 4
 		
 		switch (randomTopic)
 				{
@@ -309,7 +309,7 @@ public class Chatbot
 			case 2:
 				if(currentChat.length () > 20)
 				{
-					nextConversation = "Oh wow your useing a lot of big words there. If i'm right then you used a length more then 20. Good job.  ";
+					nextConversation = "Oh wow your useing a lot of big words there.You used a length more then 20. Good job.  ";
 				}
 				break;
 			case 3:
@@ -319,7 +319,34 @@ public class Chatbot
 				}
 				break;
 			case 4:
-				nextConversation = "Oh relly tell me more. ";
+				nextConversation = "You should try clicking on the screen background : ). ";
+				break;
+			case 5:
+				if(memeChecker(currentChat))
+				{
+					nextConversation = "Oh that's such a fun meme :D";
+				}
+				break;
+			case 6:
+				if(politicalTopicChecker(currentChat))
+				{
+					nextConversation = "Oh a political topic! That's fun";
+				}
+				break;
+			case 7:
+				if(currentChat.length () > 20)
+				{
+					nextConversation = "What? The length is more then 20. Good job.  ";
+				}
+				break;
+			case 8:
+				if(CatlistChecker(currentChat))
+				{
+					nextConversation = "I can't think of a cat pun. so ";
+				}
+				break;
+			case 9:
+				nextConversation = "have you tryed to hold down alt and moving your mouse on the background? ";
 				break;
 			default: 
 				nextConversation = "if you found this then the universe has ended. Try restarting it. That fixes it most of the time.";
