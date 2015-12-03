@@ -1,11 +1,11 @@
 package chat.controller;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.awt.Color;
 
 import chat.model.Chatbot;
-import chat.view.ChatBotFrame;
-import chat.view.ChatView;
-
+import chat.view.*;
 /**
  * Application controller for the Chatbot project.
  * @author bsha6756
@@ -22,6 +22,7 @@ public class ChatBotController
 	private ArrayList<String> politicalTopicList;
 	private String userName;
 	private String content;
+	private ChatBotPanel changeRandomColor;
 	
 	
 	public ChatBotController()
@@ -36,12 +37,16 @@ public class ChatBotController
 	public void start()
 
 	{
+		
 		//myDisplay.displaymessage("Hello " + myBot.getUserName());
 		
 		//chat();
 	
 	}
 	
+
+
+
 	private void chat() 
 	
 	{
@@ -74,5 +79,26 @@ public class ChatBotController
 	{
 		myDisplay.grabText("Goodbye," + myBot.getUserName() + " it has been my pleasure to talk with you");
 		System.exit(0);
+	}
+
+
+	public Object getChatbot()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public Object getChatView()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ChatBotFrame getBaseFrame()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

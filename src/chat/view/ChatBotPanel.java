@@ -1,7 +1,7 @@
 package chat.view;
 
 import javax.swing.*;
-import javax.swing.JOptionPane;
+
 import	chat.controller.*;
 import chat.model.*;
 import chat.view.*;
@@ -31,16 +31,13 @@ public class ChatBotPanel extends JPanel
 			
 			
 			chatArea = new JTextArea (10,30);
-			baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -5, SpringLayout.NORTH, TextField);
-			baseLayout.putConstraint(SpringLayout.EAST, chatArea, 0, SpringLayout.EAST, this);
+			
 			
 			
 			promptLabel = new JLabel("Talk with me");
-			baseLayout.putConstraint(SpringLayout.WEST, promptLabel, 258, SpringLayout.WEST, this);
-			baseLayout.putConstraint(SpringLayout.SOUTH, promptLabel, -6, SpringLayout.NORTH, chatArea);
+			
 			
 			quitButton = new JButton("Quit");
-			baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 3, SpringLayout.SOUTH, quitButton);
 			
 			
 			
@@ -75,6 +72,11 @@ public class ChatBotPanel extends JPanel
 	}
 	private void setupLayout()
 	{
+		baseLayout.putConstraint(SpringLayout.WEST, promptLabel, 256, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, promptLabel, -6, SpringLayout.NORTH, chatArea);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 3, SpringLayout.SOUTH, quitButton);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -5, SpringLayout.NORTH, TextField);
+		baseLayout.putConstraint(SpringLayout.EAST, chatArea, 0, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, submitButton, 1, SpringLayout.NORTH, TextField);
 		baseLayout.putConstraint(SpringLayout.SOUTH, TextField, -10, SpringLayout.SOUTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, TextField, 37, SpringLayout.WEST, this);
@@ -154,6 +156,12 @@ public class ChatBotPanel extends JPanel
 			}
 	
 		});
+	}
+
+	public JComponent getTextField()
+	{
+		
+		return TextField;
 	}
 	
 }

@@ -33,7 +33,7 @@ public class ChatView
 	{
 		String output = "";
 		
-		output = JOptionPane.showInputDialog(null, message, windowMessage, JOptionPane.PLAIN_MESSAGE,chatIcon,null,"Tipe here").toString();
+		output = JOptionPane.showInputDialog(null, message, windowMessage, JOptionPane.PLAIN_MESSAGE,chatIcon,null,"Type here").toString();
 		
 		return output;
 
