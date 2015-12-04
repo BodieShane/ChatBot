@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import chat.view.*;
-import chat.controller.ChatBotController;
+import chat.controller.ChatController;
 import java.awt.Component;
 import java.awt.event.ActionListener;
 
@@ -14,12 +14,12 @@ import javax.swing.JButton;
 
 public class ChatPanelTest
 {
-	private ChatBotPanel basePanel;
+	private ChatPanel basePanel;
 	
 	@Before
 	public void setUp() throws Exception
 	{
-		basePanel = new ChatBotPanel(new ChatBotController());
+		basePanel = new ChatPanel(new ChatController());
 	}
 
 	@After

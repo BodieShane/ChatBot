@@ -10,7 +10,7 @@ public class ChatBotRunner
 	public static void main(String[] args) 
 
 	{
-		ChatBotController myController = new ChatBotController();
+		ChatController myController = new ChatController();
 		myController.start();
 	}
 

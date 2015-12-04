@@ -5,15 +5,15 @@ import javax.swing.JFrame;
 
 import chat.controller.*;
 
-public class ChatBotFrame extends JFrame
+public class ChatFrame extends JFrame
 {
-	private ChatBotController baceController;
-	private ChatBotPanel basePanel;
+	private ChatController baceController;
+	private ChatPanel basePanel;
 
-	public ChatBotFrame(ChatBotController baceController)
+	public ChatFrame(ChatController baceController)
 	{
 		this.baceController = baceController;
-		basePanel = new ChatBotPanel (baceController);
+		basePanel = new ChatPanel (baceController);
 		
 		setupFrame();
 	
@@ -28,7 +28,7 @@ public class ChatBotFrame extends JFrame
 		this.setVisible(true);
 	}
 	
-	public ChatBotController getBaseController()
+	public ChatController getBaseController()
 	{
 		return baceController;
 	}

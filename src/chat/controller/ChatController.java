@@ -6,14 +6,15 @@ import java.awt.Color;
 
 import chat.model.Chatbot;
 import chat.view.*;
+import chat.controller.*;
 /**
  * Application controller for the Chatbot project.
  * @author bsha6756
  *@version 1.11 10/21/15 fixed error
  */
-public class ChatBotController 
+public class ChatController 
 {
-	private ChatBotFrame baceFrame;
+	private ChatFrame baseFrame;
 	private ChatView myDisplay;
 	private Scanner ChatBotScanner;
 
@@ -22,15 +23,15 @@ public class ChatBotController
 	private ArrayList<String> politicalTopicList;
 	private String userName;
 	private String content;
-	private ChatBotPanel changeRandomColor;
+	private ChatPanel changeRandomColor;
 	
 	
-	public ChatBotController()
+	public ChatController()
 	{
 		myDisplay = new ChatView();
 		String userName= myDisplay.grabText("What is your name?");
 		myBot = new Chatbot(userName);
-		baceFrame = new ChatBotFrame (this); 
+		baseFrame = new ChatFrame (this); 
 	}
 	
 	
@@ -64,9 +65,9 @@ public class ChatBotController
 	public String userToChabot(String conersation)
 	{
 		String response ="";
-		if(myBot.quitchecker(conersation))
+		if(myBot.quitChecker(conersation))
 		{
-			shutDown();
+			quitChecker();
 		}
 		response = myBot.prossesConersation(conersation);
 		
@@ -75,7 +76,7 @@ public class ChatBotController
 	}
 	
 	
-	private void shutDown()
+	private void quitChecker()
 	{
 		myDisplay.grabText("Goodbye," + myBot.getUserName() + " it has been my pleasure to talk with you");
 		System.exit(0);
@@ -84,21 +85,21 @@ public class ChatBotController
 
 	public Object getChatbot()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		
+		return myBot;
 	}
 
 
 	public Object getChatView()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		
+		return myDisplay;
 	}
 
 
-	public ChatBotFrame getBaseFrame()
+	public ChatFrame getBaseFrame()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		
+		return baseFrame;
 	}
 }

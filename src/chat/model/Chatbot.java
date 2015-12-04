@@ -1,6 +1,6 @@
 package chat.model;
 import javax.swing.JOptionPane;
-import chat.controller.ChatBotController;
+import chat.controller.ChatController;
 
 import java.util.ArrayList;
 
@@ -32,6 +32,7 @@ public class Chatbot
 	 */
 	public Chatbot(String userName)
 	{
+		this.keyboardMash = new ArrayList<String>();
 		this.userName = userName;
 		this.content = "Game's";
 		this.catList = new ArrayList<String>();
@@ -40,7 +41,7 @@ public class Chatbot
 		buildMemesList();
 		buildPoliticalTopicsList();
 		buildCatList();
-		
+		buildkeyboardMash();
 	}
 	
 	private void buildkeyboardMash()
@@ -49,6 +50,8 @@ public class Chatbot
 		this.keyboardMash.add("sdf");
 		this.keyboardMash.add("dfg");
 		this.keyboardMash.add(",./");
+		this.keyboardMash.add("cvb");
+		
 	}
 	
 	private void buildMemesList()
@@ -75,8 +78,8 @@ public class Chatbot
 		this.politicalTopicList.add("jobs");
 		this.politicalTopicList.add(" Women's Rights");
 		this.politicalTopicList.add("Gay Rights");
-		this.politicalTopicList.add("Defense of Marriage Act");
-		this.politicalTopicList.add("Energy");
+		this.politicalTopicList.add("Republican");
+		this.politicalTopicList.add("Democrat");
 		this.politicalTopicList.add("Unemployment Benefits");
 		this.politicalTopicList.add("Police Abuse");
 		this.politicalTopicList.add("Tort Reform");
@@ -87,7 +90,7 @@ public class Chatbot
 		this.politicalTopicList.add("Jeb Bush");
 		this.politicalTopicList.add("Ben Carson");
 		this.politicalTopicList.add("Chris Christie");
-		this.politicalTopicList.add("Ted Cruz");
+		this.politicalTopicList.add("11/4/16");
 		this.politicalTopicList.add("Carly Fiorina");
 		this.politicalTopicList.add("Jim Gilmore");
 		this.politicalTopicList.add("Lindsey Graham");
@@ -154,14 +157,14 @@ public class Chatbot
 	
 	public boolean contentChecker(String currentInput)
 	{
-		boolean hascotent = false;
+		boolean hascontent = false;
 
 		if (currentInput.toLowerCase().contains(content.toLowerCase()))
 		{
-			hascotent = true;
+			hascontent = true;
 		}
 
-		return hascotent;
+		return hascontent;
 	}
 
 	/**
@@ -195,7 +198,7 @@ public class Chatbot
 		
 		
 	}
-	public boolean quitchecker(String currentInput)
+	public boolean quitChecker(String currentInput)
 	{
 		boolean hasQuit = false;
 		
@@ -303,7 +306,7 @@ public class Chatbot
 			case 1:
 				if(politicalTopicChecker(currentChat))
 				{
-					nextConversation = "Oh a political topic! I see well I think that we should let me run evrething. ";
+					nextConversation = "Oh a political topic! I see well I think that you should let me run evrething.  ";
 				}
 				break;
 			case 2:
@@ -398,9 +401,13 @@ public class Chatbot
 	 */
 	public ArrayList<String> getPoliticalTopicList()
 	{
-		return null;
+		return politicalTopicList;
 	}
 
+	public ArrayList<String> getkeyboardMash()
+	{
+		return keyboardMash;
+	}
 	/**
 	 * Updates the content area for this Chatbot instance.
 	 * 
@@ -409,6 +416,6 @@ public class Chatbot
 	 */
 	public void setContent(String content)
 	{
-
+		this.content= content;
 	}
 }

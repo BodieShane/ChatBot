@@ -9,9 +9,9 @@ import chat.view.*;
 import java.awt.Color;
 import java.awt.event.*;
 
-public class ChatBotPanel extends JPanel
+public class ChatPanel extends JPanel
 {
-	private ChatBotController baseController;
+	private ChatController baseController;
 	private JButton submitButton;
 	private JTextField TextField;
 	private SpringLayout baseLayout;
@@ -21,7 +21,11 @@ public class ChatBotPanel extends JPanel
 	private ChatView myDisplay;
 	private Chatbot myBot;
 	
-	public ChatBotPanel (ChatBotController baseController)
+	
+	
+	
+	//The base Controller is what the chat Bot is useing to make what is on the JButton and JText Area...so on.
+	public ChatPanel (ChatController baseController)
 	{
 			this.baseController = baseController;
 			baseLayout = new SpringLayout();
