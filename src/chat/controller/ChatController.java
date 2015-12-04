@@ -1,3 +1,5 @@
+//this is where we import everything
+
 package chat.controller;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -14,10 +16,12 @@ import chat.controller.*;
  */
 public class ChatController 
 {
+	
+	//this is where we declare everything
+	
 	private ChatFrame baseFrame;
 	private ChatView myDisplay;
 	private Scanner ChatBotScanner;
-
 	private Chatbot myBot;
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
@@ -25,7 +29,7 @@ public class ChatController
 	private String content;
 	private ChatPanel changeRandomColor;
 	
-	
+	//this is where we can control the chatBot
 	public ChatController()
 	{
 		myDisplay = new ChatView();
@@ -34,7 +38,7 @@ public class ChatController
 		baseFrame = new ChatFrame (this); 
 	}
 	
-	
+	//useing this we can start the code.
 	public void start()
 
 	{
@@ -47,7 +51,7 @@ public class ChatController
 	
 
 
-
+		// It was the old pop up method.
 	private void chat() 
 	
 	{
@@ -62,41 +66,42 @@ public class ChatController
 
 		}
 	}
-	public String userToChabot(String conersation)
+	//This if for the conversation
+	public String userToChabot(String conversation)
 	{
 		String response ="";
-		if(myBot.quitChecker(conersation))
+		if(myBot.quitChecker(conversation))
 		{
 			quitChecker();
 		}
-		response = myBot.prossesConersation(conersation);
+		response = myBot.prossesConersation(conversation);
 		
 		
 		return response;
 	}
 	
-	
+	//Allows the program to quit
 	private void quitChecker()
 	{
 		myDisplay.grabText("Goodbye," + myBot.getUserName() + " it has been my pleasure to talk with you");
 		System.exit(0);
 	}
 
-
+	//Returns myBot
 	public Object getChatbot()
 	{
 		
 		return myBot;
 	}
 
-
+	//returns myDisplay
 	public Object getChatView()
 	{
 		
 		return myDisplay;
 	}
 
-
+	//it returns baceFrame.
 	public ChatFrame getBaseFrame()
 	{
 		

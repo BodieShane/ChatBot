@@ -50,8 +50,9 @@ public class ChatPanel extends JPanel
 			setupLayout();
 			setupListeners();
 	}
-	
+	// the chat bot uses this to set up the Panel
 	private void setupPanel()
+
 	{
 		this.setLayout(baseLayout);
 		this.add(submitButton);
@@ -64,6 +65,8 @@ public class ChatPanel extends JPanel
 		
 		chatArea.setEditable(false);
 	}
+
+	//I used this to change colors in my chat bot.
 	private void changeRandomColor()
 	{
 		int red,green,blue;
@@ -74,7 +77,8 @@ public class ChatPanel extends JPanel
 		this.setBackground(new Color(red,green,blue));
 				
 	}
-	private void setupLayout()
+	//this is pretty much the dumping ground for my code.
+private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.WEST, promptLabel, 256, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, promptLabel, -6, SpringLayout.NORTH, chatArea);
@@ -89,7 +93,7 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 0, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.EAST, quitButton, -10, SpringLayout.EAST, this);
 	}
-
+		//This is where the code lessens to . 
 	private void setupListeners()
 	{
 		submitButton.addActionListener(new ActionListener()
@@ -161,7 +165,7 @@ public class ChatPanel extends JPanel
 	
 		});
 	}
-
+//this is just to to return the Text field.
 	public JComponent getTextField()
 	{
 		

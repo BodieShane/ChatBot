@@ -22,6 +22,7 @@ public class Chatbot
 	private ArrayList<String> catList;
 	private String userName;
 	private String content;
+	private Boolean troll;
 	
 
 	/**
@@ -38,6 +39,8 @@ public class Chatbot
 		this.catList = new ArrayList<String>();
 		this.memesList = new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
+		troll = true;
+		
 		buildMemesList();
 		buildPoliticalTopicsList();
 		buildCatList();
@@ -283,22 +286,12 @@ public class Chatbot
 					{
 						JOptionPane.showMessageDialog(null,"That meme is so last year. Do you know what my favrate meme is?");
 						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
-						JOptionPane.showMessageDialog(null,"Troll!");
+						
+						while( troll = true)
+						{
+							JOptionPane.showMessageDialog(null,"Troll!");
+						}
+			
 						
 					}
 				}
