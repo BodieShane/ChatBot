@@ -21,7 +21,11 @@ public class ChatPanel extends JPanel
 	private ChatView myDisplay;
 	private Chatbot myBot;
 	
-	
+	/////update////////
+	private JButton tweetButton;
+	private JButton saveButton;
+	private JButton lodeButton;
+	private JScrollPane textPane;
 	
 	
 	//The base Controller is what the chat Bot is useing to make what is on the JButton and JText Area...so on.
@@ -30,10 +34,8 @@ public class ChatPanel extends JPanel
 			this.baseController = baseController;
 			baseLayout = new SpringLayout();
 			submitButton = new JButton("Enter");
-			
 			TextField = new JTextField ("Words can be typed here");
-			
-			
+
 			chatArea = new JTextArea (10,30);
 			
 			
@@ -45,21 +47,40 @@ public class ChatPanel extends JPanel
 			
 			
 			
-			
+			setupChatPane();
 			setupPanel();
 			setupLayout();
 			setupListeners();
 	}
+	
+	
+	
+	
+	private void setupChatPane()
+	{
+		
+		chatArea.setLineWrap(true);
+		chatArea.setWrapStyleWord(true);
+		chatArea.setEditable(false);
+		textPane = new JScrollPane(chatArea);
+		
+		textPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		textPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+	}
+	
 	// the chat bot uses this to set up the Panel
+
 	private void setupPanel()
 
 	{
 		this.setLayout(baseLayout);
 		this.add(submitButton);
 		this.add(TextField);
-		this.add(chatArea);
+		this.add(textPane);
 		this.add(promptLabel);
 		this.add(quitButton);
+		
+		
 		
 		TextField.setToolTipText("Type Here to talk with the ChatBot");
 		
@@ -80,6 +101,10 @@ public class ChatPanel extends JPanel
 	//this is pretty much the dumping ground for my code.
 private void setupLayout()
 	{
+	baseLayout.putConstraint(SpringLayout.NORTH, textPane, 30, SpringLayout.NORTH, this);
+	baseLayout.putConstraint(SpringLayout.WEST, textPane, 20, SpringLayout.WEST, this);
+	baseLayout.putConstraint(SpringLayout.SOUTH, textPane, 250, SpringLayout.NORTH, this);
+	baseLayout.putConstraint(SpringLayout.EAST, textPane, -20, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, promptLabel, 256, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, promptLabel, -6, SpringLayout.NORTH, chatArea);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 3, SpringLayout.SOUTH, quitButton);
