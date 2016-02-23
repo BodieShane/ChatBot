@@ -38,7 +38,7 @@ public class ChatController
 		baseFrame = new ChatFrame (this); 
 	}
 	
-	//useing this we can start the code.
+	//Using this we can start the code.
 	public void start()
 
 	{

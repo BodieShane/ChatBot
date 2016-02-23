@@ -109,7 +109,6 @@ public class Chatbot
 
 	}
 	
-	
 	private void buildCatList()
 	{
 		this.catList.add("Cat");
@@ -289,7 +288,13 @@ public class Chatbot
 						
 						while( troll = true)
 						{
-							JOptionPane.showMessageDialog(null,"Troll!");
+							JOptionPane.showMessageDialog(null,"My favrate meme is Troll :D");
+							JOptionPane.showMessageDialog(null,"because ");
+							JOptionPane.showMessageDialog(null,"do you know why");
+							JOptionPane.showMessageDialog(null,"My favrate meme is Troll :)");
+							JOptionPane.showMessageDialog(null,"well you have to know why?");
+
+							
 						}
 			
 						
