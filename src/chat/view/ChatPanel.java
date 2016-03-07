@@ -65,7 +65,7 @@ public class ChatPanel extends JPanel
 		textPane = new JScrollPane(chatArea);
 		
 		textPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		textPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		textPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	}
 	
 	// the chat bot uses this to set up the Panel

@@ -53,7 +53,21 @@ public class Chatbot
 		this.keyboardMash.add("sdf");
 		this.keyboardMash.add("dfg");
 		this.keyboardMash.add(",./");
-		this.keyboardMash.add("cvb");
+		this.keyboardMash.add("df");
+		this.keyboardMash.add("gh");
+		this.keyboardMash.add("hj");
+		this.keyboardMash.add("vb");
+		this.keyboardMash.add("uy");
+		this.keyboardMash.add("rf");
+		this.keyboardMash.add("  bv");
+		this.keyboardMash.add("er");
+		this.keyboardMash.add("ng");
+		this.keyboardMash.add("wrre");
+		this.keyboardMash.add("bv");
+		this.keyboardMash.add("we");
+		this.keyboardMash.add("bv");
+		this.keyboardMash.add("zx");
+		
 		
 	}
 	
@@ -105,6 +119,7 @@ public class Chatbot
 		this.politicalTopicList.add("Marco Rubio");
 		this.politicalTopicList.add("Rick Santorum");
 		this.politicalTopicList.add("Donald Trump");
+		this.politicalTopicList.add("Trump");
 		
 
 	}
@@ -270,7 +285,7 @@ public class Chatbot
 	
 	public  String prossesConersation(String currentChat)
 	{
-		String nextConversation = "Oh, what else would you like to talk about?";
+		String nextConversation = "okay and";
 		int   randomTopic =(int) (Math.random() * 10);//generates a random number between 0 and 4
 		
 		switch (randomTopic)
@@ -347,7 +362,7 @@ public class Chatbot
 				}
 				break;
 			case 9:
-				nextConversation = "have you tryed to hold down alt and moving your mouse on the background? ";
+				nextConversation = "have you tryed to hold down alt and moving your mouse on the background? Oh also try and talk about something FUN ";
 				break;
 			default: 
 				nextConversation = "if you found this then the universe has ended. Try restarting it. That fixes it most of the time.";
