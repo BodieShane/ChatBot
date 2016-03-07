@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.awt.Color;
 
+import chat.model.CTECTwitter;
 import chat.model.Chatbot;
 import chat.view.*;
 import chat.controller.*;
@@ -19,6 +20,7 @@ public class ChatController
 	
 	//this is where we declare everything
 	
+	private CTECTwitter chatTwitter;
 	private ChatFrame baseFrame;
 	private ChatView myDisplay;
 	private Scanner ChatBotScanner;
@@ -36,6 +38,7 @@ public class ChatController
 		String userName = myDisplay.grabText("What is your name?");
 		myBot = new Chatbot(userName);
 		baseFrame = new ChatFrame (this); 
+		chatTwitter = new CTECTwitter();
 	}
 	
 	//Using this we can start the code.
@@ -65,6 +68,13 @@ public class ChatController
 			
 
 		}
+	}
+	
+	public void sendTweet(String tweatText)
+	{
+
+		chatTwitter.sendTweet(tweatText);
+		
 	}
 	//This if for the conversation
 	public String userToChabot(String conversation)

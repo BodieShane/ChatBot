@@ -14,6 +14,7 @@ import twitter4j.*;
 public class CTECTwitter
 {
 	
+	
 	private ArrayList <Status> statusList;
 	private ArrayList<String> wordList;
 	private Twitter chatbotTwitter;
@@ -21,6 +22,7 @@ public class CTECTwitter
 
 	public CTECTwitter()
 	{
+		chatbotTwitter = TwitterFactory.getSingleton();
 		statusList = new ArrayList<Status>();
 		wordList = new ArrayList<String>();
 	}
@@ -29,11 +31,11 @@ public class CTECTwitter
 	{
 		try
 		{
-			chatbotTwitter.updateStatus("I just tweeted from my Java Chatbot program! #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen!");
+			chatbotTwitter.updateStatus("I just tweeted from my Java Chatbot program! #APCSRocks #ShamelessPlugin @CTECNow Thanks @cscheerleader & @codyhenrichsen!");
 		}
 		catch (TwitterException e)
 		{
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

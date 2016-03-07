@@ -73,13 +73,14 @@ public class ChatPanel extends JPanel
 	private void setupPanel()
 
 	{
+		
 		this.setLayout(baseLayout);
 		this.add(submitButton);
 		this.add(TextField);
 		this.add(textPane);
 		this.add(promptLabel);
 		this.add(quitButton);
-		
+		this.add(tweetButton);
 		
 		
 		TextField.setToolTipText("Type Here to talk with the ChatBot");
@@ -121,6 +122,14 @@ private void setupLayout()
 		//This is where the code lessens to . 
 	private void setupListeners()
 	{
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				baseController.sendTweet("no text to send");
+			}
+		});
+		
 		submitButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
