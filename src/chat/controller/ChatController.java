@@ -31,6 +31,10 @@ public class ChatController
 	private String content;
 	private ChatPanel changeRandomColor;
 	
+	
+	
+	
+	
 	//this is where we can control the chatBot
 	public ChatController()
 	{
@@ -38,7 +42,8 @@ public class ChatController
 		String userName = myDisplay.grabText("What is your name?");
 		myBot = new Chatbot(userName);
 		baseFrame = new ChatFrame (this); 
-		chatTwitter = new CTECTwitter();
+		chatTwitter = new CTECTwitter(this);
+		baseFrame= new ChatFrame(this);
 	}
 	
 	//Using this we can start the code.
@@ -75,6 +80,11 @@ public class ChatController
 
 		chatTwitter.sendTweet(tweatText);
 		
+	}
+	
+	public void  handleErrors(String errorMessage)
+	{
+		myDisplay.displaymessage(errorMessage);
 	}
 	//This if for the conversation
 	public String userToChabot(String conversation)

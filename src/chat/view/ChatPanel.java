@@ -35,16 +35,10 @@ public class ChatPanel extends JPanel
 			baseLayout = new SpringLayout();
 			submitButton = new JButton("Enter");
 			TextField = new JTextField ("Words can be typed here");
-
 			chatArea = new JTextArea (10,30);
-			
-			
-			
 			promptLabel = new JLabel("Talk with me");
-			
-			
 			quitButton = new JButton("Quit");
-			
+			tweetButton = new JButton("tweet");
 			
 			
 			setupChatPane();
