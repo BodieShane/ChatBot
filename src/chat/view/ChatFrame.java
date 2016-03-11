@@ -1,6 +1,8 @@
 package chat.view;
 
 
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 
 import chat.controller.*;
@@ -26,6 +28,7 @@ public class ChatFrame extends JFrame
 		this.setTitle("ChatBot");
 		this.setResizable(false);
 		this.setVisible(true);
+		
 	}
 	
 	public ChatController getBaseController()

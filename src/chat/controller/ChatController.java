@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.awt.Color;
 
+import javax.swing.Spring;
+
 import chat.model.CTECTwitter;
 import chat.model.Chatbot;
 import chat.view.*;
@@ -86,6 +88,14 @@ public class ChatController
 	{
 		myDisplay.displaymessage(errorMessage);
 	}
+	
+	public String analyze (String userName)
+	{
+		String userAnalysis = "The Twtter use" + userName + "has..";
+		return userAnalysis;
+	}
+	
+	
 	//This if for the conversation
 	public String userToChabot(String conversation)
 	{

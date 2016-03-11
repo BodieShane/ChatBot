@@ -1,6 +1,7 @@
 package chat.model;
 import java.util.ArrayList;
 
+import twitter4j.Paging;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -34,6 +35,7 @@ public class CTECTwitter
 	}
 	
 	public void sendTweet(String tweet)
+
 	{
 		try
 		{
@@ -46,4 +48,47 @@ public class CTECTwitter
 			
 		}
 	}
+
+	public void loadTweets(String twitterHandle) throws TwitterException
+	{
+		Paging statuspage = new Paging (1,200);
+		int page = 1;
+		while (page <= 10)
+		{
+			statuspage.setPage(page);
+			statusList.addAll(chatbotTwitter.getUserTimeline(twitterHandle,statuspage));
+			
+			
+			page ++;
+		}
+		for(Status currentStatus : statusList)
+		{
+			String[] tweetText = currentStatus.getText().split("");
+			for(String word: tweetText)
+			{
+				wordList.add(removePuntuation(word).toLowerCase());
+			}
+		
+		}
+		
+		removeCommonglishWords(wordList);
+		removeEmptyText();
+	}
+
+	private void removeEmptyText()
+	{
+		
+	}
+
+	private void removeCommonglishWords(ArrayList<String> wordList2)
+	{
+		
+	}
+
+	private String removePuntuation(String word)
+	{
+		return null;
+	}
+
+	
 }

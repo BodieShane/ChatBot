@@ -7,6 +7,7 @@ import chat.model.*;
 import chat.view.*;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.*;
 
 public class ChatPanel extends JPanel
@@ -75,6 +76,7 @@ public class ChatPanel extends JPanel
 		this.add(promptLabel);
 		this.add(quitButton);
 		this.add(tweetButton);
+		this.setPreferredSize(new Dimension(600,600));
 		
 		
 		TextField.setToolTipText("Type Here to talk with the ChatBot");
@@ -116,6 +118,17 @@ private void setupLayout()
 		//This is where the code lessens to . 
 	private void setupListeners()
 	{
+		
+		aalyzeTwitterButton.addActionListener(new ActionListener())
+		{
+			public void actionPerformed(ctionEvent click)
+			{
+				String user = typingField.getText();
+				String results = baseController.analyze(user);
+				chatArea.setText(results);
+			}
+		});
+		
 		tweetButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
