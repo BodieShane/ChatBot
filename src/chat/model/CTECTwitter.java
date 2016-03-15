@@ -1,5 +1,8 @@
 package chat.model;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import twitter4j.Paging;
 import twitter4j.Status;
@@ -110,8 +113,31 @@ public class CTECTwitter
 
 	private String[] importWordsToArray()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		String[]boringWords;
+		int wordCount =0;
+		try
+		{
+			Scanner wordFile = new Scanner ( new File ("commonWords.txt"));
+			while (wordFile.hasNext())
+			{
+				wordCount ++;
+				wordFile.next();
+			}
+			wordFile.reset();
+			boringWords = new String [wordCount];
+			int boringWordCount = 0;
+			while (wordFile.hasNext())
+			{
+				boringWords[boringWordCount]= wordFile.next();
+				boringWordCount ++;
+			}
+			wordFile.close();
+		}
+		catch (FileNotFoundException e)
+		{
+			return new String [0];
+		}
+		return boringWords;
 	}
 
 	private String removePuntuation(String currentString)
