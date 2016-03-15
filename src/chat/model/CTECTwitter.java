@@ -87,9 +87,31 @@ public class CTECTwitter
 		}
 	}
 
-	private void removeCommonglishWords(ArrayList<String> wordList2)
+	@SuppressWarnings("unchecked")
+	private void removeCommonglishWords(ArrayList<String> wordList)
 	{
+		String[] boringWords = importWordsToArray();
+		for (int count = 0; count < wordList.size();count++)
+		{
+			for (int removeSpot = 0; removeSpot < boringWords.length; removeSpot++)
+			{
+				if (wordList.get(count).equalsIgnoreCase(boringWords[removeSpot]))
+				{
+					wordList.remove(count);
+					count--;// when you remove you have to --
+					removeSpot = boringWords.length;
+				}
+			}
+		}
+		//removeTwitterUsernamesFromList(wordList);
 		
+		//return wordList;
+	}
+
+	private String[] importWordsToArray()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private String removePuntuation(String currentString)
