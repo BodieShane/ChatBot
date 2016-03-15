@@ -85,9 +85,19 @@ public class CTECTwitter
 		
 	}
 
-	private String removePuntuation(String word)
+	private String removePuntuation(String currentString)
 	{
-		return null;
+		String punctuaion = ".,'?!:;\"(){}^[]<>-;";
+		String scrubbedString = "";
+		for(int i =0;i< currentString.length(); i++)
+		{
+			if (punctuaion.indexOf(currentString.charAt(i)) == -1)
+			{
+				scrubbedString += currentString.charAt(i);
+			}
+		}
+		
+		return scrubbedString;
 	}
 
 	

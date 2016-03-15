@@ -119,13 +119,20 @@ private void setupLayout()
 	private void setupListeners()
 	{
 		
-		aalyzeTwitterButton.addActionListener(new ActionListener())
+		aalyzeTwitterButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ctionEvent click)
 			{
 				String user = typingField.getText();
 				String results = baseController.analyze(user);
 				chatArea.setText(results);
+			}
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				// TODO Auto-generated method stub
+				
 			}
 		});
 		
