@@ -77,7 +77,14 @@ public class CTECTwitter
 
 	private void removeEmptyText()
 	{
-		
+		for (int spot =0; spot < wordList.size(); spot++)
+		{
+			if (wordList.get(spot).equals (""))
+			{
+				wordList.remove(spot);
+				spot--;// WHEN REMOVEING THINGS FORM A LIST DO -- Because it will go over if you don't  
+			}
+		}
 	}
 
 	private void removeCommonglishWords(ArrayList<String> wordList2)
