@@ -87,13 +87,13 @@ public class CTECTwitter
 
 	private String removePuntuation(String currentString)
 	{
-		String punctuaion = ".,'?!:;\"(){}^[]<>-;";
+		String punctuaion = ".,'?!:;\"(){}^[]<>-;"; // This is everything that it will remove
 		String scrubbedString = "";
-		for(int i =0;i< currentString.length(); i++)
+		for(int i =0;i< currentString.length(); i++) // It is going through the text
 		{
 			if (punctuaion.indexOf(currentString.charAt(i)) == -1)
 			{
-				scrubbedString += currentString.charAt(i);
+				scrubbedString += currentString.charAt(i);// This is taking the changed text and adding it to the array. It removes the text at the top.
 			}
 		}
 		
