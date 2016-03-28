@@ -21,6 +21,7 @@ public class ChatPanel extends JPanel
 	private JButton quitButton;
 	private ChatView myDisplay;
 	private Chatbot myBot;
+	private JButton alyzeTwitterButton;
 	
 	/////update////////
 	private JButton tweetButton;
@@ -40,6 +41,9 @@ public class ChatPanel extends JPanel
 			promptLabel = new JLabel("Talk with me");
 			quitButton = new JButton("Quit");
 			tweetButton = new JButton("tweet");
+			
+			alyzeTwitterButton = new JButton("alyzeTwitter");
+			
 			
 			
 			setupChatPane();
@@ -76,6 +80,7 @@ public class ChatPanel extends JPanel
 		this.add(promptLabel);
 		this.add(quitButton);
 		this.add(tweetButton);
+		this.add(alyzeTwitterButton);
 		this.setPreferredSize(new Dimension(600,600));
 		
 		
@@ -98,42 +103,40 @@ public class ChatPanel extends JPanel
 	//this is pretty much the dumping ground for my code.
 private void setupLayout()
 	{
+	baseLayout.putConstraint(SpringLayout.EAST, tweetButton, 0, SpringLayout.EAST, submitButton);
+	baseLayout.putConstraint(SpringLayout.SOUTH, alyzeTwitterButton, -118, SpringLayout.NORTH, TextField);
+	baseLayout.putConstraint(SpringLayout.NORTH, tweetButton, 0, SpringLayout.NORTH, alyzeTwitterButton);
+	baseLayout.putConstraint(SpringLayout.WEST, alyzeTwitterButton, 0, SpringLayout.WEST, TextField);
 	baseLayout.putConstraint(SpringLayout.NORTH, textPane, 30, SpringLayout.NORTH, this);
 	baseLayout.putConstraint(SpringLayout.WEST, textPane, 20, SpringLayout.WEST, this);
 	baseLayout.putConstraint(SpringLayout.SOUTH, textPane, 250, SpringLayout.NORTH, this);
 	baseLayout.putConstraint(SpringLayout.EAST, textPane, -20, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, promptLabel, 256, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, promptLabel, -6, SpringLayout.NORTH, chatArea);
-		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 3, SpringLayout.SOUTH, quitButton);
-		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -5, SpringLayout.NORTH, TextField);
-		baseLayout.putConstraint(SpringLayout.EAST, chatArea, 0, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, submitButton, 1, SpringLayout.NORTH, TextField);
-		baseLayout.putConstraint(SpringLayout.SOUTH, TextField, -10, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, TextField, 37, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.EAST, TextField, -135, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, submitButton, 6, SpringLayout.EAST, TextField);
-		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 0, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.EAST, quitButton, -10, SpringLayout.EAST, this);
+	baseLayout.putConstraint(SpringLayout.WEST, promptLabel, 256, SpringLayout.WEST, this);
+	baseLayout.putConstraint(SpringLayout.SOUTH, promptLabel, -6, SpringLayout.NORTH, chatArea);
+	baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 3, SpringLayout.SOUTH, quitButton);
+	baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -5, SpringLayout.NORTH, TextField);
+	baseLayout.putConstraint(SpringLayout.EAST, chatArea, 0, SpringLayout.EAST, this);
+	baseLayout.putConstraint(SpringLayout.NORTH, submitButton, 1, SpringLayout.NORTH, TextField);
+	baseLayout.putConstraint(SpringLayout.SOUTH, TextField, -10, SpringLayout.SOUTH, this);
+	baseLayout.putConstraint(SpringLayout.WEST, TextField, 37, SpringLayout.WEST, this);
+	baseLayout.putConstraint(SpringLayout.EAST, TextField, -135, SpringLayout.EAST, this);
+	baseLayout.putConstraint(SpringLayout.WEST, submitButton, 6, SpringLayout.EAST, TextField);
+	baseLayout.putConstraint(SpringLayout.WEST, chatArea, 0, SpringLayout.WEST, this);
+	baseLayout.putConstraint(SpringLayout.EAST, quitButton, -10, SpringLayout.EAST, this);
 	}
 		//This is where the code lessens to . 
 	private void setupListeners()
 	{
 		
-		aalyzeTwitterButton.addActionListener(new ActionListener()
+		alyzeTwitterButton.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(ctionEvent click)
+			public void actionPerformed(ActionEvent click)
 			{
-				String user = typingField.getText();
+				String user = TextField.getText();
 				String results = baseController.analyze(user);
 				chatArea.setText(results);
 			}
 
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				// TODO Auto-generated method stub
-				
-			}
 		});
 		
 		tweetButton.addActionListener(new ActionListener()

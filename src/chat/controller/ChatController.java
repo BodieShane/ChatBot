@@ -8,6 +8,7 @@ import java.awt.Color;
 
 import javax.swing.Spring;
 
+import twitter4j.TwitterException;
 import chat.model.CTECTwitter;
 import chat.model.Chatbot;
 import chat.view.*;
@@ -92,6 +93,15 @@ public class ChatController
 	public String analyze (String userName)
 	{
 		String userAnalysis = "The Twtter use" + userName + "has..";
+		try
+		{
+			chatTwitter.loadTweets(userName);
+		}
+		catch(TwitterException error)
+		{
+			handleErrors(error.getErrorMessage());
+		}
+		userAnalysis += chatTwitter.topResults();
 		return userAnalysis;
 	}
 	
@@ -136,5 +146,11 @@ public class ChatController
 	{
 		
 		return baseFrame;
+	}
+	public String anlyze(String userName)
+	{
+		String userAnalysis = "The Twitter user " + userName + "has meny twets." + chatTwitter.topResults();
+		return userAnalysis;
+				
 	}
 }

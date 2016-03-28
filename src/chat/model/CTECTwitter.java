@@ -1,15 +1,23 @@
 package chat.model;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import twitter4j.GeoLocation;
 import twitter4j.Paging;
+import twitter4j.Query;
+import twitter4j.QueryResult;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import chat.controller.ChatController;
+/**
+ * 
+ * @author bsha6756
+ * @version 0.03
+ * This is going to talk with Twitter
+ *
+ */
 /**
  * 
  * @author bsha6756
@@ -24,7 +32,7 @@ public class CTECTwitter
 	
 	
 	private ArrayList <Status> statusList;
-	private ArrayList<String> wordList;
+	private ArrayList<String> wordsList;
 	private Twitter chatbotTwitter;
 	private ChatController baseController;
 	
@@ -34,7 +42,7 @@ public class CTECTwitter
 		this.baseController = baseController;
 		chatbotTwitter = TwitterFactory.getSingleton();
 		statusList = new ArrayList<Status>();
-		wordList = new ArrayList<String>();
+		wordsList = new ArrayList<String>();
 	}
 	
 	public void sendTweet(String tweet)
@@ -42,7 +50,7 @@ public class CTECTwitter
 	{
 		try
 		{
-			chatbotTwitter.updateStatus("Lower text book prices!!!!!");
+			chatbotTwitter.updateStatus("Lower text book prices!!!!!-  Bodie Shane");
 		}
 		catch (TwitterException error)
 		{
@@ -54,6 +62,8 @@ public class CTECTwitter
 
 	public void loadTweets(String twitterHandle) throws TwitterException
 	{
+		statusList.clear();
+		wordsList.clear();
 		Paging statuspage = new Paging (1,200);
 		int page = 1;
 		while (page <= 10)
@@ -69,22 +79,22 @@ public class CTECTwitter
 			String[] tweetText = currentStatus.getText().split("");
 			for(String word: tweetText)
 			{
-				wordList.add(removePuntuation(word).toLowerCase());
+				wordsList.add(removePuntuation(word).toLowerCase());
 			}
 		
 		}
 		
-		removeCommonglishWords(wordList);
+		removeCommonglishWords(wordsList);
 		removeEmptyText();
 	}
 
 	private void removeEmptyText()
 	{
-		for (int spot =0; spot < wordList.size(); spot++)
+		for (int spot =0; spot < wordsList.size(); spot++)
 		{
-			if (wordList.get(spot).equals (""))
+			if (wordsList.get(spot).equals (""))
 			{
-				wordList.remove(spot);
+				wordsList.remove(spot);
 				spot--;// WHEN REMOVEING THINGS FORM A LIST DO -- Because it will go over if you don't  
 			}
 		}
@@ -110,20 +120,50 @@ public class CTECTwitter
 		
 		//return wordList;
 	}
-
+	
+	public String topResults()
+	{
+		String tweetResults = "";
+		int topWordLocation = 0;
+		
+		int topCount = 0;
+		
+		for(int index =0; index < wordsList.size(); index++)
+		{
+			int wordUseCount = 1;
+			for(int spot = index + 1; spot < wordsList.size(); spot++)
+			{
+				if(wordsList.get(index).equals(wordsList.get(spot)))
+				{
+					wordUseCount ++;
+				}
+				if(wordUseCount > topCount)
+				{
+					topCount = wordUseCount;
+					topWordLocation = index;
+				}
+			}
+		}
+		
+		tweetResults = " the top wod in the tweets was" + wordsList.get(topWordLocation) + " and it was used"+
+		topCount + "times!";
+		return tweetResults;
+		
+		
+	}
+	
 	private String[] importWordsToArray()
 	{
 		String[]boringWords;
 		int wordCount =0;
-		try
-		{
-			Scanner wordFile = new Scanner ( new File ("commonWords.txt"));
+		
+			Scanner wordFile = new Scanner(getClass().getResourceAsStream("commonWords.txt"));
 			while (wordFile.hasNext())
 			{
 				wordCount ++;
 				wordFile.next();
 			}
-			wordFile.reset();
+			wordFile= new Scanner(getClass().getResourceAsStream("commonWords.text"));
 			boringWords = new String [wordCount];
 			int boringWordCount = 0;
 			while (wordFile.hasNext())
@@ -132,13 +172,39 @@ public class CTECTwitter
 				boringWordCount ++;
 			}
 			wordFile.close();
-		}
-		catch (FileNotFoundException e)
-		{
-			return new String [0];
-		}
-		return boringWords;
+			return boringWords;
 	}
+
+	
+	
+	public String sampleInvestigation()
+	{
+		String results="";
+		Query query = new Query ("marathon");
+		query.setCount(100);
+		query.setGeoCode(new GeoLocation(40.487521,-111.869176), 8, Query.MILES);
+		try
+		{
+			QueryResult result = chatbotTwitter.search ( query);
+			results += "Count; " + result.getTweets().size() + "\n";
+			{
+				for (Status tweet: result.getTweets())
+				{
+					results+="@" + tweet.getUser().getName()+ ":" + tweet.getText() + "\n";
+					
+					
+				}
+			}
+			}
+			catch (TwitterException error)
+			{
+				error.printStackTrace();
+			}
+			return results;
+		
+	}
+		
+	
 
 	private String removePuntuation(String currentString)
 	{
@@ -154,6 +220,9 @@ public class CTECTwitter
 		
 		return scrubbedString;
 	}
+
+	
+	// When I click the button it goes to the analyze in the controller. Then it goes to top results. and prints it on the screen.  
 
 	
 }
