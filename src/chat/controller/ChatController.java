@@ -38,6 +38,7 @@ public class ChatController
 	
 	
 	
+	
 	//this is where we can control the chatBot
 	public ChatController()
 	{
@@ -47,6 +48,7 @@ public class ChatController
 		baseFrame = new ChatFrame (this); 
 		chatTwitter = new CTECTwitter(this);
 		baseFrame= new ChatFrame(this);
+		
 	}
 	
 	//Using this we can start the code.
@@ -60,7 +62,13 @@ public class ChatController
 	
 	}
 	
-
+	public String analyzeTweet()
+	{
+		String Investigation = "Investigation";
+		Investigation += chatTwitter.sampleInvestigation();
+		
+		return Investigation;
+	}
 
 		// It was the old pop up method.
 	private void chat() 

@@ -127,6 +127,16 @@ private void setupLayout()
 		//This is where the code lessens to . 
 	private void setupListeners()
 	{
+		alyzeTwitterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String user = TextField.getText();
+				String results = baseController.analyzeTweet();
+				chatArea.setText(results);
+			}
+
+		});
 		
 		alyzeTwitterButton.addActionListener(new ActionListener()
 		{
