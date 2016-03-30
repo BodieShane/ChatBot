@@ -14,6 +14,7 @@ public class ChatPanel extends JPanel
 {
 	private ChatController baseController;
 	private JButton submitButton;
+	
 	private JTextField TextField;
 	private SpringLayout baseLayout;
 	private JTextArea chatArea;
@@ -26,7 +27,7 @@ public class ChatPanel extends JPanel
 	/////update////////
 	private JButton tweetButton;
 	private JButton saveButton;
-	private JButton lodeButton;
+	private JButton loadButton;
 	private JScrollPane textPane;
 	
 	
@@ -42,6 +43,8 @@ public class ChatPanel extends JPanel
 			quitButton = new JButton("Quit");
 			tweetButton = new JButton("tweet");
 			
+			saveButton = new JButton("Save");
+			loadButton = new JButton("Lode");
 			alyzeTwitterButton = new JButton("alyzeTwitter");
 			
 			
@@ -73,6 +76,8 @@ public class ChatPanel extends JPanel
 
 	{
 		
+		this.add(saveButton);
+		this.add(loadButton);
 		this.setLayout(baseLayout);
 		this.add(submitButton);
 		this.add(TextField);
@@ -103,6 +108,11 @@ public class ChatPanel extends JPanel
 	//this is pretty much the dumping ground for my code.
 private void setupLayout()
 	{
+	baseLayout.putConstraint(SpringLayout.WEST, saveButton, 10, SpringLayout.WEST, this);
+	baseLayout.putConstraint(SpringLayout.SOUTH, saveButton, -12, SpringLayout.NORTH, TextField);
+	baseLayout.putConstraint(SpringLayout.NORTH, loadButton, 0, SpringLayout.NORTH, saveButton);
+	baseLayout.putConstraint(SpringLayout.WEST, loadButton, 6, SpringLayout.EAST, saveButton);
+	
 	baseLayout.putConstraint(SpringLayout.EAST, tweetButton, 0, SpringLayout.EAST, submitButton);
 	baseLayout.putConstraint(SpringLayout.SOUTH, alyzeTwitterButton, -118, SpringLayout.NORTH, TextField);
 	baseLayout.putConstraint(SpringLayout.NORTH, tweetButton, 0, SpringLayout.NORTH, alyzeTwitterButton);
@@ -148,7 +158,22 @@ private void setupLayout()
 			}
 
 		});
-		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String file = IOController.saveFile(chatArea.getText());
+				promptLabel.setText(file);
+			}
+		});
+		loadButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String file = IOController.readTextFromFile(promptLabel.getText());
+				chatArea.setText(file);
+			}
+		});
 		tweetButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
