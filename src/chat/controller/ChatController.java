@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.awt.Color;
 
+import javax.swing.JOptionPane;
+import javax.swing.Spring;
+
+import twitter4j.TwitterException;
+import chat.model.CTECTwitter;
 import chat.model.Chatbot;
 import chat.view.*;
 import chat.controller.*;
@@ -19,6 +24,7 @@ public class ChatController
 	
 	//this is where we declare everything
 	
+	private CTECTwitter chatTwitter;
 	private ChatFrame baseFrame;
 	private ChatView myDisplay;
 	private Scanner ChatBotScanner;
@@ -28,20 +34,45 @@ public class ChatController
 	private String userName;
 	private String content;
 	private ChatPanel changeRandomColor;
+	private int hate;
+	
+	
+
+	public void clickBait(int hate)
+	{
+		for (int spot =10; spot == hate; spot --)
+		{
+		JOptionPane.showMessageDialog(null, "SAVE THE CATS!!! CLICK HEAR NOW!!!!");
+		JOptionPane.showMessageDialog(null, "YOU JUST WON A FREE I PAD CLICK NOW!!!");
+		JOptionPane.showMessageDialog(null, "Top 10 projects about programing");
+		JOptionPane.showMessageDialog(null, "Click hear to know a trick that teachers hate!!! ");
+		JOptionPane.showMessageDialog(null, "Top 10 Déjà vu moments that you had.");
+		
+		}
+		
+		
+	}
+	
+	
+	
 	
 	//this is where we can control the chatBot
 	public ChatController()
 	{
 		myDisplay = new ChatView();
-		String userName= myDisplay.grabText("What is your name?");
+		String userName = myDisplay.grabText("What is your name?");
 		myBot = new Chatbot(userName);
 		baseFrame = new ChatFrame (this); 
+		chatTwitter = new CTECTwitter(this);
+		baseFrame= new ChatFrame(this);
+		
 	}
 	
 	//Using this we can start the code.
 	public void start()
 
 	{
+	
 		
 		//myDisplay.displaymessage("Hello " + myBot.getUserName());
 		
@@ -49,7 +80,13 @@ public class ChatController
 	
 	}
 	
-
+	public String analyzeTweet()
+	{
+		String Investigation = "Investigation";
+		Investigation += chatTwitter.sampleInvestigation();
+		
+		return Investigation;
+	}
 
 		// It was the old pop up method.
 	private void chat() 
@@ -66,6 +103,35 @@ public class ChatController
 
 		}
 	}
+	
+	public void sendTweet(String tweatText)
+	{
+
+		chatTwitter.sendTweet(tweatText);
+		
+	}
+	
+	public void  handleErrors(String errorMessage)
+	{
+		myDisplay.displaymessage(errorMessage);
+	}
+	
+	public String analyze (String userName)
+	{
+		String userAnalysis = "The Twtter use" + userName + "has..";
+		try
+		{
+			chatTwitter.loadTweets(userName);
+		}
+		catch(TwitterException error)
+		{
+			handleErrors(error.getErrorMessage());
+		}
+		userAnalysis += chatTwitter.topResults();
+		return userAnalysis;
+	}
+	
+	
 	//This if for the conversation
 	public String userToChabot(String conversation)
 	{
@@ -106,5 +172,11 @@ public class ChatController
 	{
 		
 		return baseFrame;
+	}
+	public String anlyze(String userName)
+	{
+		String userAnalysis = "The Twitter user " + userName + "has meny twets." + chatTwitter.topResults();
+		return userAnalysis;
+				
 	}
 }
